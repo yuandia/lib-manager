@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.BookMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.Book">
+        <result column="id" jdbcType="INTEGER" property="bookId"/>
+        <result column="book_name" jdbcType="VARCHAR" property="bookName"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="inventory" jdbcType="INTEGER" property="bookInventory"/>
+    </resultMap>
+
+    <select id="getBookList" resultMap="BaseResultMap">
+        select * from book;
+    </select>
+
+    <select id="getBook" resultMap="BaseResultMap">
+        SELECT * FROM book WHERE book_name=#{bookName}
+    </select>
+
+    <insert id="setBook">
+        INSERT INTO book(book_name, create_time,inventory) VALUES (#{bookName},#{createTime},#{bookInventory})
+    </insert>
+
+    <update id="addBook">
+        UPDATE book SET inventory=inventory+#{addbookNumber} WHERE book_name=#{bookName}
+    </update>
+
+    <delete id="deleteBook">
+        DELETE FROM book WHERE book_name=#{bookName}
+    </delete>
+    <select id="findBook" resultMap="BaseResultMap">
+        SELECT *FROM book WHERE book_name=#{bookName}
+    </select>
+</mapper>

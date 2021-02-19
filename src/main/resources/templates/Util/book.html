@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员</title>
+</head>
+<body>
+<form action="/Book/getBookList" method="post">
+    <button type="submit">获取所有书籍信息</button>
+</form>
+<form action="/Book/getBook" method="post">
+    书籍名称：<input name="bookName" type="text">
+    <button type="submit">获取该书籍信息</button>
+</form>
+<form action="/Book/setBook" method="post">
+    书籍名称：<input name="bookName" type="text">
+    <button type="submit">加入书籍</button>
+</form>
+<form action="/Book/addBook" method="post">
+    书籍名称：<input name="bookName" type="text">
+    数量：<input name="addbookNumber" type="text">
+    <button type="submit">加入书籍</button>
+</form>
+<form action="/Book/deleteBook" method="post">
+    书籍名称：<input name="bookName" type="text">
+    <button type="submit">删除书籍</button>
+</form>
+</body>
+</html>
